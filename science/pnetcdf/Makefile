@@ -1,13 +1,14 @@
 PORTNAME=	pnetcdf
 PORTVERSION=	1.12.3
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	science parallel
 MASTER_SITES=	https://parallel-netcdf.github.io/Release/ \
 		LOCAL/sunpoet
 
 MAINTAINER=	sunpoet@FreeBSD.org
 COMMENT=	Library providing high-performance I/O
-WWW=		https://parallel-netcdf.github.io/
+WWW=		https://parallel-netcdf.github.io/ \
+		https://github.com/Parallel-NetCDF/PnetCDF
 
 USES=		fortran gmake libtool pathfix perl5
 USE_PERL5=	build
@@ -15,6 +16,7 @@ USE_PERL5=	build
 CFLAGS+=	-fPIC
 CONFIGURE_ARGS=	--with-mpi=${MPI_HOME} ac_cv_fc_compiler_nag=no
 GNU_CONFIGURE=	yes
+GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
 MAKE_JOBS_UNSAFE=	yes
 
 CONFLICTS_INSTALL=	hdf-4.*

@@ -1,6 +1,6 @@
 PORTNAME=	fb303
 DISTVERSIONPREFIX=	v
-DISTVERSION=	2023.12.11.00
+DISTVERSION=	2024.03.04.00
 PORTREVISION=	1
 CATEGORIES=	net
 
@@ -30,13 +30,14 @@ LIB_DEPENDS=	libboost_regex.so:devel/boost-libs \
 		libwangle.so:net/wangle \
 		libzstd.so:archivers/zstd
 
-USES=		cmake compiler:c++17-lang
+USES=		cmake compiler:c++17-lang ssl
 USE_LDCONFIG=	yes
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	facebook
 
 CXXFLAGS+=	-fPIC
+CXXFLAGS+=	-DGLOG_USE_GLOG_EXPORT
 
 CMAKE_ON=	BUILD_SHARED_LIBS
 CMAKE_OFF=	PYTHON_EXTENSIONS

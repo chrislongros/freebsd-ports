@@ -1,6 +1,6 @@
 PORTNAME=	spider
 PORTVERSION=	1.1
-PORTREVISION=	4
+PORTREVISION=	5
 CATEGORIES=	games
 MASTER_SITES=	SUNSITE/games/solitaires
 DISTNAME=	${PORTNAME}
@@ -13,6 +13,9 @@ LICENSE_GROUPS=	BSD
 LICENSE_NAME=	Spider license
 LICENSE_FILE=	${WRKSRC}/copyright.h
 LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
+
+DEPRECATED=	SUNSITE is no longer maintained
+EXPIRATION_DATE=2024-04-05
 
 USES=		imake tar:Z xorg
 USE_XORG=	x11 xext xaw xmu xt sm ice xpm

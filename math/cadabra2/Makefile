@@ -1,6 +1,5 @@
 PORTNAME=	cadabra2
-DISTVERSION=	2.4.4.1
-PORTREVISION=	1
+DISTVERSION=	2.4.5.4
 CATEGORIES=	math
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -9,6 +8,8 @@ WWW=		https://cadabra.science/
 
 LICENSE=	LGPL3
 LICENSE_FILE=	${WRKSRC}/doc/license.txt
+
+BROKEN_FreeBSD_15=	compilation fails with clang-17, see https://github.com/kpeeters/cadabra2/issues/285
 
 BUILD_DEPENDS=	${LOCALBASE}/include/websocketpp/client.hpp:devel/websocketpp
 LIB_DEPENDS=	${PY_BOOST} \

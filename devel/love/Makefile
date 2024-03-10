@@ -1,5 +1,6 @@
 PORTNAME=	love
 PORTVERSION=	11.4
+PORTREVISION=	1
 CATEGORIES=	devel games
 MASTER_SITES=	https://github.com/love2d/love/releases/download/${PORTVERSION}/
 DISTNAME=	${PORTNAME}-${PORTVERSION}-linux-src
@@ -11,7 +12,7 @@ WWW=		https://www.love2d.org/
 LICENSE=	ZLIB
 LICENSE_FILE=	${WRKSRC}/license.txt
 
-NOT_FOR_ARCHS=		mips mips64 powerpc powerpc64 powerpcspe sparc64
+NOT_FOR_ARCHS=		mips mips64 powerpc powerpc64 powerpcspe
 NOT_FOR_ARCHS_REASON=	Hashing not yet implemented for big endian
 
 LIB_DEPENDS=	libmodplug.so:audio/libmodplug \
@@ -26,6 +27,7 @@ USES=		autoreconf compiler:c++11-lib desktop-file-utils gl gmake \
 USE_SDL=	sdl2
 USE_GL=		gl glu
 GNU_CONFIGURE=	yes
+GNU_CONFIGURE_MANPREFIX=	${PREFIX}/share
 WRKSRC=		${WRKDIR}/love-${PORTVERSION}
 INSTALL_TARGET=	install-strip
 

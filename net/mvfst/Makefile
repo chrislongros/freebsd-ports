@@ -1,6 +1,6 @@
 PORTNAME=	mvfst
 DISTVERSIONPREFIX=	v
-DISTVERSION=	2023.12.11.00
+DISTVERSION=	2024.03.04.00
 PORTREVISION=	1
 CATEGORIES=	net
 
@@ -40,5 +40,6 @@ CMAKE_OFF=	BUILD_TESTS
 CMAKE_TESTING_ON=	BUILD_TESTS # several tests fail, see https://github.com/facebookincubator/mvfst/issues/275
 
 CXXFLAGS+=	-fPIC
+CXXFLAGS+=	-DGLOG_USE_GLOG_EXPORT
 
 .include <bsd.port.mk>

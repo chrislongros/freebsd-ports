@@ -1,5 +1,6 @@
 PORTNAME=	snappymail
-DISTVERSION=	2.29.2
+DISTVERSION=	2.35.2
+PORTREVISION=	2
 CATEGORIES=	mail www
 MASTER_SITES=	https://github.com/the-djmaze/snappymail/releases/download/v${DISTVERSION}/
 PKGNAMESUFFIX=	${PHP_PKGNAMESUFFIX}
@@ -14,7 +15,7 @@ RUN_DEPENDS=	${PECL_PKGNAMEPREFIX}APCu>0:devel/pecl-APCu@${PHP_FLAVOR} \
 		${PECL_PKGNAMEPREFIX}uuid>0:devel/pecl-uuid@${PHP_FLAVOR}
 
 USES=		php:web,flavors
-USE_PHP=	curl dom gd iconv intl mbstring phar sodium tidy \
+USE_PHP=	ctype curl dom fileinfo gd iconv intl mbstring phar sodium tidy \
 		xml zip zlib
 
 NO_ARCH=	yes

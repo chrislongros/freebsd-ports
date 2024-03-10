@@ -16,7 +16,7 @@ LICENSE_FILE_LGPL3=	${WRKSRC}/COPYING.LESSERv3
 BUILD_DEPENDS=	gmp>=6.1.0:math/gmp
 LIB_DEPENDS=	libgmp.so:math/gmp
 
-USES=		compiler:c11 cpe gmake localbase makeinfo pathfix
+USES=		compiler:c11 cpe gmake localbase pathfix
 
 CONFIGURE_ARGS=	--enable-shared
 CONFIGURE_ENV=	M4="/usr/bin/m4 -g"
@@ -36,10 +36,6 @@ EXAMPLES_EXTRA_PATCHES_OFF=	${PATCHDIR}/extra-patch-Makefile.in
 
 .include <bsd.port.options.mk>
 
-.if ${ARCH} == "sparc64"
-CONFIGURE_ENV+=	CCPIC=-fPIC
-.endif
-
 .if ${ARCH} == "mips64"
 post-patch:
 	@${REINPLACE_CMD} -e 's|__sgi|__unix__|' ${WRKSRC}/configure
@@ -47,6 +43,7 @@ post-patch:
 
 post-install:
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/lib*.so
+	${INSTALL_DATA} ${WRKSRC}/nettle.info ${STAGEDIR}${PREFIX}/${INFO_PATH}/nettle.info
 
 post-install-DOCS-on:
 	${MKDIR} ${STAGEDIR}${DOCSDIR}

@@ -75,6 +75,7 @@ SQLITE_LIB_DEPENDS=	libsqlite3.so:databases/sqlite3
 
 MYSQL_USES=		mysql
 MYSQL_CONFIGURE_ENABLE=	mysql
+MYSQL_VARS=	IGNORE_WITH_MYSQL="81"
 
 BDB_USES=		bdb
 BDB_CONFIGURE_ENABLE=	db
@@ -155,4 +156,4 @@ post-install:
 .endfor
 .endif
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>

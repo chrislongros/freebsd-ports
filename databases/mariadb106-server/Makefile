@@ -23,6 +23,8 @@ WWW=		https://mariadb.org/
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
+#EXPIRATION_DATE=	2026-07-01
+
 LIB_DEPENDS+=	libpcre2-8.so:devel/pcre2 \
 		libzstd.so:archivers/zstd
 
@@ -219,12 +221,6 @@ CFLAGS+=        -Wno-incompatible-function-pointer-types
 .if ${ARCH} != amd64 && ${ARCH} != aarch64
 PLIST_SUB+=	WSREP="@comment "
 .endif
-
-#.if ${ARCH} == i386
-#USE_GCC=	9
-#CFLAGS+=	-DHAVE_GCC_C11_ATOMICS -latomic -DUSE_NEW_READLINE_INTERFACE
-#CXXFLAGS+=	-fpermissive
-#.endif
 
 post-patch:
 .if ${OPSYS} == DragonFly
